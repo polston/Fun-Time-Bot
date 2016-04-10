@@ -1,7 +1,10 @@
+"use strict";
+
 export class CommandHandler 
 {
-    constructor(client) {
+    constructor(client, commands) {
         this.client = client;
+        this.commands = commands;
     }
     
     handle(event) {
@@ -12,7 +15,12 @@ export class CommandHandler
         var commandString = event.message.content;
         var commandParams = this.parse(commandString);
         
+        var command = this.commands.find(c => c.name === commandParams.name);
+        if(command == null) {
+            return;
+        }
         
+        command.action(event, commandParams.param, commandParams.args);
     }
     
     parse(commandString) {

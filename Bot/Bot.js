@@ -4,13 +4,16 @@ var Discordie = require("discordie");
 var Events = Discordie.Events;
 
 import { CommandHandler } from "./CommandHandler";
+import { SayCommand } from "./../Commands/SayCommand";
 
 export class Bot 
 {
     constructor(config) {
         this.config = config;
         this.client = new Discordie();
-        this.commandHandler = new CommandHandler(this.client);
+        this.commandHandler = new CommandHandler(this.client, [
+            new SayCommand(this),
+        ]);
     }
     
     start() {
