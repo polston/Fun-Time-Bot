@@ -3,11 +3,14 @@
 var Discordie = require("discordie");
 var Events = Discordie.Events;
 
+import { CommandHandler } from "./CommandHandler";
+
 export class Bot 
 {
     constructor(config) {
         this.config = config;
         this.client = new Discordie();
+        this.commandHandler = new CommandHandler(this.client);
     }
     
     start() {
@@ -18,7 +21,7 @@ export class Bot
         });
         
         this.client.Dispatcher.on(Events.MESSAGE_CREATE, event => {
-            console.log(event.message.content);
+            this.commandHandler.handle(event);
         });
     }
     
