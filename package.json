@@ -1,0 +1,12 @@
+{
+  "name": "fun-time-discord-bot",
+  "version": "0.0.0",
+  "description": "FUN WITH BOTS AND DISCORD!?",
+  "main": "start.js",
+  "author": "Ryan Wiesjahn && Michael Polston",
+  "dependencies": {
+    "babel-core": "^6.7.6",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "discordie": "^0.4.4"
+  }
+}
