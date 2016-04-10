@@ -1,6 +1,6 @@
 import { secret } from "./secret"
 
-const config = {
+export const config = {
     bot: {
         token: secret.bot.token
     }
