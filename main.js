@@ -5,7 +5,7 @@ var Events = Discordie.Events;
 // JS ES6 Imports
 import { config } from "./config/config"
 
-
+// SOME RANDOM JUNK
 
 var discordie = new Discordie();
 discordie.connect(config.bot);
