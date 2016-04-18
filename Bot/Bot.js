@@ -5,6 +5,7 @@ var Events = Discordie.Events;
 
 import { CommandHandler } from "./CommandHandler";
 import { SayCommand } from "./../Commands/SayCommand";
+import { ClearCommand } from "./../Commands/ClearCommand";
 
 export class Bot 
 {
@@ -13,6 +14,7 @@ export class Bot
         this.client = new Discordie();
         this.commandHandler = new CommandHandler(this.client, [
             new SayCommand(this),
+            new ClearCommand(this),
         ]);
     }
     

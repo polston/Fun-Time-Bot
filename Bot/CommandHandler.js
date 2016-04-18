@@ -40,13 +40,20 @@ export class CommandHandler
               }
            }
          */
+        
         var parts = commandString.match(/(?:[^\s"]+|"[^"]*")+/g);
         
-        var params = {
-            name: parts[0].replace(new RegExp('"', "g"), ""),
-            param: parts[1].replace(new RegExp('"', "g"), ""),
-            args: {}  // {channel: "general", server: "Ladies Only"}
-        };
+        var params = {};
+        
+        if(parts.length > 0) {
+            params["name"] = parts[0].replace(new RegExp('"', "g"), "");
+        }
+        
+        if(parts.length > 1) {
+            params["param"] = parts[1].replace(new RegExp('"', "g"), "");
+        }
+        
+        params["args"] = {};  // {channel: "general", server: "Ladies Only"}
         
         for(var i = 2; i < parts.length; i += 2) {
             if (parts.length > i + 1) {
